@@ -77,7 +77,7 @@ class Employee extends Component {
       email: this.state.doctor_email,
       password: this.state.doctor_password,
       salary: this.state.doctor_salary,
-      specialisation: this.state.doctor_specialization,
+      specialization: this.state.doctor_specialization,
       shift_time: '10:00 - 02:00'
     }
     

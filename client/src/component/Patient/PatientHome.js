@@ -23,10 +23,10 @@ class PatientHome extends Component {
         doctor_lastname: "",
         specialist: "",
 
-        medicine_cost: '',
-        misc_charge: '',
-        room_charge: '',
-        operation_charge: '',
+        // medicine_cost: '',
+        // misc_charge: '',
+        // room_charge: '',
+        // operation_charge: '',
 
 
         bill: []
@@ -62,7 +62,7 @@ class PatientHome extends Component {
             this.setState({
               doctor_firstname: details.doctor_firstname,
               doctor_lastname: details.doctor_lastname,
-              specialist: details.specialisation
+              specialist: details.specialization
             })
           }
           else {
@@ -79,10 +79,10 @@ class PatientHome extends Component {
         })
         .then(res => {
           this.setState({
-            medicine_cost: res.data[0].medicine_cost,
-            misc_charge: res.data[0].misc_charge,
-            room_charge: res.data[0].room_charge,
-            operation_charge: res.data[0].operation_charge
+            // medicine_cost: res.data[0].medicine_cost,
+            // misc_charge: res.data[0].misc_charge,
+            // room_charge: res.data[0].room_charge,
+            // operation_charge: res.data[0].operation_charge
           });
         })
     }
@@ -161,25 +161,25 @@ class PatientHome extends Component {
                           <tr>
                             <td>Medicine Cost</td>
                             <td>
-                              {this.state.medicine_cost}
+                              {/* {this.state.medicine_cost} */}
                             </td>
                           </tr>
                           <tr>
                             <td>Operation Charge</td>
-                            <td>{this.state.operation_charge}</td>
+                            {/* <td>{this.state.operation_charge}</td> */}
                           </tr>
                           <tr>
                             <td>Room Charge</td>
-                            <td>{this.state.room_charge}</td>
+                            {/* <td>{this.state.room_charge}</td> */}
                           </tr>
                           <tr>
                           <td>Miscellaneous Charge</td>
-                          <td>{this.state.misc_charge}</td>
+                          {/* <td>{this.state.misc_charge}</td> */}
                           </tr>
 
                           <tr>
                             <td>Total </td>
-                            <td>{this.state.misc_charge + this.state.room_charge + this.state.operation_charge + this.state.medicine_cost}</td>
+                            {/* <td>{this.state.misc_charge + this.state.room_charge + this.state.operation_charge + this.state.medicine_cost}</td> */}
                           </tr>
                       
                       </tbody>

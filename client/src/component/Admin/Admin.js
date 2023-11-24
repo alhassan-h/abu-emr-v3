@@ -36,7 +36,7 @@ class Admin extends Component {
       last_name: this.state.last_name,
       email: this.state.email,
       address: this.state.address,
-      phone_no: this.state.phone_no,
+      // phone_no: this.state.phone_no,
       designation: this.state.designation,
       salary: this.state.salary,
       password: this.state.password
@@ -44,7 +44,7 @@ class Admin extends Component {
 
     // console.log(emp)
 
-    axios.post('/admin/register', emp)
+    axios.post('/employee/register', emp)
       .then(res => {
         return res.data;
       })
@@ -116,17 +116,7 @@ class Admin extends Component {
                 />
               </div>
 
-              <div className="form-group">
-                <label htmlFor="name">Address</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="address"
-                  placeholder="Enter Address"
-                 value={this.state.address}
-                  onChange={this.onChange}
-                />
-              </div>
+              
               <div className="form-group">
                 <label htmlFor="name">Designation</label>
                 <input
@@ -150,6 +140,17 @@ class Admin extends Component {
                 />
               </div>
               <div className="form-group">
+                <label htmlFor="name">Address</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="address"
+                  placeholder="Enter Address"
+                 value={this.state.address}
+                  onChange={this.onChange}
+                />
+              </div>
+              {/* <div className="form-group">
                 <label htmlFor="name">Phone Number</label>
                 <input
                   type="text"
@@ -159,7 +160,7 @@ class Admin extends Component {
                  value={this.state.phone_no}
                   onChange={this.onChange}
                 />
-              </div>
+              </div> */}
               <div className="form-group">
                 <label htmlFor="name">Password</label>
                 <input
@@ -191,12 +192,12 @@ class Admin extends Component {
                 </div>
                 <br/>
               <div className="form-group">
-                <label htmlFor="name">Employee ID</label>
+                <label htmlFor="name">Employee Email</label>
                 <input
                   type="text"
                   className="form-control"
                   name="del_emp_id"
-                  placeholder="Enter Employee ID"
+                  placeholder="Enter Employee Email"
                  value={this.state.del_emp_id}
                   onChange={this.onChange}
                 />

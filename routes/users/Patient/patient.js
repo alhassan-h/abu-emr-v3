@@ -112,7 +112,7 @@ patient.get('/doctor', (req, res) => {
     let patient =  `SELECT 
                         d.first_name as doctor_firstname,
                         d.last_name doctor_lastname,
-                        d.specialisation 
+                        d.specialization 
                     FROM assign_doctor ad
                     JOIN patient p
                         ON p.patient_id = ad.patient_id
