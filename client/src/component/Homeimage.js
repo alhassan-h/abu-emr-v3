@@ -13,7 +13,7 @@ class Homeimage extends Component {
                 <Card.ImgOverlay>
                     <Card.Title>
                     <MDBContainer >
-                        <h1 className="font-weight-bold text-danger">Lifescape Hospital Ltd</h1>
+                        <h1 className="font-weight-bold text-danger">ABUTH</h1>
                         <br>
                         
                         

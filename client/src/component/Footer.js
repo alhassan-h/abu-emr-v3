@@ -18,8 +18,8 @@ class Footer extends Component {
       
               
               <h5 className="text-uppercase font-weight-bold">Contact us:</h5>
-              <p>EMAIL: lifescapehospital@gmail.com</p>
-              <p>Phone no: 7686968650</p>
+              <p>EMAIL: abuth@gmail.com</p>
+              <p>Phone no: (+234) 803 786 4864</p>
       
             </div>
             
@@ -31,7 +31,7 @@ class Footer extends Component {
       
              
               <h5 className="text-uppercase font-weight-bold">Address:</h5>
-              <p> 47/77 Banerjee Para Kolkata-700031</p>
+              <p> Sokoto Road, Shika-Zaria</p>
       
             </div>
            
@@ -41,8 +41,8 @@ class Footer extends Component {
       
                           </div>
         
-                      <div className="footer-copyright text-center py-3 default-color-dark">© 2019 Copyright:
-                          <span> lifescaspanehospitalltd.com</span>
+                      <div className="footer-copyright text-center py-3 default-color-dark">© 2023 :
+                          <span> abuth.com</span>
                       </div>
         
             </footer> );

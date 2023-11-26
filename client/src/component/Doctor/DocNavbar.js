@@ -45,7 +45,7 @@ class DocNavbar extends Component {
                 <Navbar className={classnames("navbar", {
                     "navbar--hidden": !this.state.visible
                   })} bg="success" text="white" var expand="lg">
-                <Navbar.Brand style={{color:"white"}}>Lifescape Hospital Ltd</Navbar.Brand>
+                <Navbar.Brand style={{color:"white"}}>ABUTH</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
