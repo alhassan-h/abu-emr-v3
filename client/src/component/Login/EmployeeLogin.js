@@ -27,7 +27,7 @@ class EmployeeLogin extends Component {
       password: this.state.password
     }
 
-    axios.post('/employee/login', {
+    axios.post('/admin/login', {
       email: user.email,
       password: user.password
     }).then(response => {

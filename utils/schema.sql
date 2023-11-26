@@ -80,3 +80,15 @@ CREATE TABLE assign_doctor (
     doctor_id INT
 );
 
+-- bill Table
+DROP TABLE IF EXISTS `bill`;
+
+CREATE TABLE bill (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    medicine_cost VARCHAR(255) NOT NULL,
+    room_charge VARCHAR(255) NOT NULL,
+    misc_charge VARCHAR(255) NOT NULL,
+    operation_charge VARCHAR(255) NOT NULL
+);
+INSERT INTO `bill`(`patient_id`) VALUES (1);

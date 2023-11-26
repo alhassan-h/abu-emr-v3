@@ -46,6 +46,7 @@ class Admin extends Component {
 
     axios.post('/employee/register', emp)
       .then(res => {
+        this.setState({});
         return res.data;
       })
       .catch(err => console.log(err));
@@ -75,112 +76,101 @@ class Admin extends Component {
             <br></br>
             <div className ="row">
               <div className = "col">
-              <div className="container mx-auto">
-              <div className="jumbotron mt-5" style ={{backgroundColor:"#e0e0e0"}}>
-              <form noValidate onSubmit={this.onSubmit1} >
-                <div className="col-sm-6">
-                  <h2 className="text-primary">Add New Employee</h2>
-                </div>
-                <br/>
-              <div className="form-group">
-                <label htmlFor="name">First Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="first_name"
-                  placeholder="Enter First Name"
-                 value={this.state.first_name}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Last Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="last_name"
-                  placeholder="Enter Last Name"
-                 value={this.state.last_name}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Email</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="email"
-                  placeholder="Enter Email Address"
-                 value={this.state.email}
-                  onChange={this.onChange}
-                />
-              </div>
+                <div className="jumbotron mt-5" style ={{backgroundColor:"#e0e0e0"}}>
+                  <div className="container mx-auto">
+                    <form noValidate onSubmit={this.onSubmit1} >
+                      <div className="col-sm-6">
+                        <h2 className="text-primary">Add New Employee</h2>
+                      </div>
+                      <br/>
+                      <div className="form-group">
+                        <label htmlFor="name">First Name</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="first_name"
+                          placeholder="Enter First Name"
+                        value={this.state.first_name}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="name">Last Name</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="last_name"
+                          placeholder="Enter Last Name"
+                        value={this.state.last_name}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="name">Email</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="email"
+                          placeholder="Enter Email Address"
+                        value={this.state.email}
+                          onChange={this.onChange}
+                        />
+                      </div>
 
-              
-              <div className="form-group">
-                <label htmlFor="name">Designation</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="designation"
-                  placeholder="Enter Designation"
-                 value={this.state.designation}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Salary</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="salary"
-                  placeholder="Enter Salary Information"
-                 value={this.state.salary}
-                  onChange={this.onChange}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Address</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="address"
-                  placeholder="Enter Address"
-                 value={this.state.address}
-                  onChange={this.onChange}
-                />
-              </div>
-              {/* <div className="form-group">
-                <label htmlFor="name">Phone Number</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="phone_no"
-                  placeholder="Enter Phone Number"
-                 value={this.state.phone_no}
-                  onChange={this.onChange}
-                />
-              </div> */}
-              <div className="form-group">
-                <label htmlFor="name">Password</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  name="password"
-                  placeholder="Enter Password"
-                 value={this.state.password}
-                  onChange={this.onChange}
-                />
-              </div>
-              <button
-               type="submit"
-              className="btn btn-lg btn-primary btn-block"
-              >
-              Enter Employee
-              </button>
-              </form>
-              </div>
-            </div>
+                      
+                      <div className="form-group">
+                        <label htmlFor="name">Designation</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="designation"
+                          placeholder="Enter Designation"
+                        value={this.state.designation}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="name">Salary</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="salary"
+                          placeholder="Enter Salary Information"
+                        value={this.state.salary}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="name">Address</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="address"
+                          placeholder="Enter Address"
+                        value={this.state.address}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="name">Password</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="password"
+                          placeholder="Enter Password"
+                        value={this.state.password}
+                          onChange={this.onChange}
+                        />
+                      </div>
+                      <button
+                      type="submit"
+                      className="btn btn-lg btn-primary btn-block"
+                      >
+                      Enter Employee
+                      </button>
+                    </form>
+                  </div>
+                </div>
               </div>
 
               <div className = "col">

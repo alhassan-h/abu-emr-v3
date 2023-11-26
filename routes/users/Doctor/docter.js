@@ -15,7 +15,7 @@ doctor.post('/register', (req, res) => {
         address         : req.body.address,
         email           : req.body.email,
         salary          : req.body.salary,
-        specialisation  : req.body.specialisation,
+        specialization  : req.body.specialization,
         shift_time      : req.body.shift_time,
         password        : req.body.password
     }
@@ -30,19 +30,20 @@ doctor.post('/register', (req, res) => {
             bcrypt.hash(req.body.password, 10, (err, hash) => {
                 doctorData.password = hash;
                 
-                let create = `INSERT INTO doctors (first_name, last_name, address, email, salary, specialisation, shift_time, password)
+                let create = `INSERT INTO doctors (first_name, last_name, address, email, salary, specialization, shift_time, password)
                               VALUES ( "${doctorData.first_name}", 
                                        "${doctorData.last_name}", 
                                        "${doctorData.address}", 
                                        "${doctorData.email}",
                                        "${doctorData.salary}",
-                                       "${doctorData.specialisation}",
+                                       "${doctorData.specialization}",
                                        "${doctorData.shift_time}",
                                        "${doctorData.password}")`;
 
                 db.query(create, (err2, result2) => {
                     if(err2) console.log(err2);
                     res.send("Created Database ooooooooooooohhhhhh");
+                    console.log("Doctor created...");
                 })
             });
         }else {
@@ -56,7 +57,6 @@ doctor.post('/login', (req, res) => {
     
     db.query(find, (err, result) => {
         if(err) console.log(err);
-        console.log(result);
 
         if(result[0] != undefined) {
             if(bcrypt.compareSync(req.body.password, result[0].password)) {
@@ -76,19 +76,16 @@ doctor.get('/patient', (req,res) => {
     
     const sql = `SELECT 
                     p.patient_id,
+                    p.email,
                     p.first_name,
                     p.last_name
                 FROM assign_doctor ad
                     JOIN patient p ON p.patient_id = ad.patient_id
                     JOIN doctors d ON d.doctor_id = ad.doctor_id
-                WHERE ad.doctor_id = ${doctor_id}
-
-                `
-    console.log(sql);
+                WHERE ad.doctor_id = ${doctor_id}`
     db.query(sql, (err, result) => {
         if (err) console.log(err);
         res.send(result);
-
     });
 })
 
@@ -104,8 +101,10 @@ doctor.get('/profile', (req, res) => {
 });
 
 doctor.post('/delete', (req, res) => {
-    const find = `SELECT * FROM doctors WHERE doctor_id = ${req.body.doctor_id}`;
-    let del =  `DELETE FROM doctors WHERE doctor_id = ${req.body.doctor_id}`
+    const find = `SELECT * FROM doctors WHERE email = '${req.body.doctor_id}'`;
+    let del =  `DELETE FROM doctors WHERE email = '${req.body.doctor_id}'`
+
+
 
     db.query(find, (err1, result1) => {
         if(err1) console.log(err1);
@@ -113,6 +112,7 @@ doctor.post('/delete', (req, res) => {
         if(result1[0] != undefined) {
             db.query(del, (err2, result2) => {
                 res.send('DELETED');
+                console.log('Doctor deleted....');
             })
         }
     })

@@ -39,20 +39,20 @@ patient.post('/register', (req, res) => {
                                        "${patientData.disease}")`;
 
                 db.query(create, (err2, result2) => {
-
+                    
+                    if(err2) console.log(err2);
+                    res.send("Created Database ooooooooooooohhhhhh");
+                    
                     db.query(find, (err3, result3)=> {
                         const patient_id = result3[0].patient_id;
 
                         let bill = `INSERT INTO bill (patient_id) VALUES ("${patient_id}")`;
 
                         db.query(bill, (err4, result4)=>{
-                            console.log("OK");
+                            console.log("Bill initialized...");
                         })
                     })
 
-
-                    if(err2) console.log(err2);
-                    res.send("Created Database ooooooooooooohhhhhh");
                 })
             });
         }else {

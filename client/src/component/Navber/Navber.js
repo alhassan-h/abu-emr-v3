@@ -60,7 +60,7 @@ class Navber extends Component {
                         <NavDropdown.Item href="/patient/login">Patient Login</NavDropdown.Item>
                         <NavDropdown.Item href="/doctors/login">Doctor Login</NavDropdown.Item>
                         <NavDropdown.Item href="/employee/login">Employee Login</NavDropdown.Item>
-                        <NavDropdown.Item href="/administrator/login">Admin Login</NavDropdown.Item>
+                        {/* <NavDropdown.Item href="/administrator/login">Admin Login</NavDropdown.Item> */}
                     </NavDropdown>
                     </Nav>
                     

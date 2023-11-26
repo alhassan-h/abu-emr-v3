@@ -37,7 +37,17 @@ class Employee extends Component {
       new_salary: '',
       update_doctor_id: '',
 
-      errors: {}
+      errors: {},
+
+      newEmployee: {
+        first_name: '',
+        last_name: '',
+        email: '',
+        address: '',
+        phone_no: '',
+        designation: '',
+        salary: '',
+      }
     }
 
     this.onChange = this.onChange.bind(this)
@@ -46,11 +56,15 @@ class Employee extends Component {
     this.onSubmit3 = this.onSubmit3.bind(this)
     this.onSubmit4 = this.onSubmit4.bind(this)
     this.onSubmit5 = this.onSubmit5.bind(this)
+    // this.onSubmit6 = this.onSubmit6.bind(this)
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
+  // onChange2(e) {
+  //   this.setState({ [e.target.newEmployee.name]: e.target.newEmployee.value })
+  // }
 
   onSubmit1(e) {
     e.preventDefault();
@@ -60,7 +74,7 @@ class Employee extends Component {
       doctor_id: this.state.doctor_id
     }
 
-    Axios.post('/admin/assign_doctor', ass_doc)
+    Axios.post('/employee/assign_doctor', ass_doc)
       .then(response => {
         return response.data;
       })
@@ -100,7 +114,7 @@ class Employee extends Component {
       operation_charge: this.state.operation_charge,
     }
 
-    Axios.post('/admin/bill', data)
+    Axios.post('/employee/bill', data)
       .then(response => {
         return response.data;
       })
@@ -138,9 +152,29 @@ class Employee extends Component {
       .catch(err => console.log(err));
   }
 
+  // onSubmit6(e) {
+  //   e.preventDefault();
+
+  //   const emp = {
+  //     first_name: this.newEmployee.state.first_name,
+  //     last_name: this.newEmployee.state.last_name,
+  //     email: this.newEmployee.state.email,
+  //     address: this.newEmployee.state.address,
+  //     designation: this.newEmployee.state.designation,
+  //     salary: this.newEmployee.state.salary,
+  //     password: this.newEmployee.state.password
+  //   }
+
+  //   Axios.post('/employee/register', emp)
+  //     .then(res => {
+  //       this.setState({});
+  //       return res.data;
+  //     })
+  //     .catch(err => console.log(err));
+  // }
 
   componentDidMount() {
-    Axios.get('/admin/details', {
+    Axios.get('/employee/profile', {
       headers: {
         authorization: sessionStorage.getItem('usertoken')
       }
@@ -195,10 +229,6 @@ class Employee extends Component {
               <td> {this.state.address} </td>
             </tr>
             <tr>
-            <td>Phone number</td>
-                <td> {this.state.phone_no} </td>
-            </tr>
-            <tr>
                 <td>Designation </td>
                 <td> {this.state.designation} </td>
             </tr>
@@ -223,7 +253,7 @@ class Employee extends Component {
         <br/>
 
         <div className="form-group">
-        <label htmlFor="name">Patient ID</label>
+        <label htmlFor="name">Patient Email</label>
         <input
           type="text"
           className="form-control"
@@ -234,7 +264,7 @@ class Employee extends Component {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="name">Doctor ID</label>
+        <label htmlFor="name">Doctor Email</label>
         <input
           type="text"
           className="form-control"
@@ -443,7 +473,7 @@ class Employee extends Component {
 
 
         <div className = "row">
-          <div className = "col">
+          <div className = "col-lg-6 col-md-6 col-sm-12">
          
       <div className="container mr-3">
       <div className="jumbotron mt-5" style ={{backgroundColor:"#e0e0e0"}}>
@@ -464,64 +494,160 @@ class Employee extends Component {
         />
       </div>
       <button
-                type="submit"
-                className="btn btn-lg btn-primary btn-block"
-              >
-              Delete
-              </button>
+        type="submit"
+        className="btn btn-lg btn-primary btn-block"
+        >Delete
+      </button>
       </form>
       </div>
     </div>
     </div>
-    <div className="col">
-    <div className="container mr-3">
-    <div className="jumbotron mt-5" style ={{backgroundColor:"#e0e0e0"}}>
-    <form noValidate onSubmit={this.onSubmit5} >
-      <div className="col-sm-6">
-        <h2 className="text-primary">Update Doctor Salary</h2>
-      </div>
-      <br/>
-    <div className="form-group">
-      <label htmlFor="name">Doctor ID</label>
-      <input
-        type="text"
-        className="form-control"
-        name="update_doctor_id"
-        placeholder="Enter Doctor ID"
-       value={this.state.update_doctor_id}
-        onChange={this.onChange}
-      />
-    </div>
-    <div className="form-group">
-    <label htmlFor="name">New Salary</label>
-    <input
-      type="text"
-      className="form-control"
-      name="new_salary"
-      placeholder="Enter New Salary of Doctor"
-     value={this.state.new_salary}
-      onChange={this.onChange}
-    />
-  </div>
-    <button
-              type="submit"
-              className="btn btn-lg btn-primary btn-block"
+
+    {/* <div className = "col">
+      <div className="jumbotron mt-5" style ={{backgroundColor:"#e0e0e0"}}>
+        <div className="container mx-auto">
+          <form noValidate onSubmit={this.onSubmit1} >
+            <div className="col-sm-6">
+              <h2 className="text-primary">Add New Employee</h2>
+            </div>
+            <br/>
+            <div className="form-group">
+              <label htmlFor="name">First Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="first_name"
+                placeholder="Enter First Name"
+              value={this.state.newEmployee.first_name}
+                onChange={this.onChange2}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Last Name</label>
+              <input
+                type="text"
+                className="form-control"
+                name="last_name"
+                placeholder="Enter Last Name"
+              value={this.state.newEmployee.last_name}
+                onChange={this.onChange2}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Email</label>
+              <input
+                type="text"
+                className="form-control"
+                name="email"
+                placeholder="Enter Email Address"
+              value={this.state.newEmployee.email}
+                onChange={this.onChange2}
+              />
+            </div>
+
+            
+            <div className="form-group">
+              <label htmlFor="name">Designation</label>
+              <input
+                type="text"
+                className="form-control"
+                name="designation"
+                placeholder="Enter Designation"
+              value={this.state.newEmployee.designation}
+                onChange={this.onChange2}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Salary</label>
+              <input
+                type="text"
+                className="form-control"
+                name="salary"
+                placeholder="Enter Salary Information"
+              value={this.state.newEmployee.salary}
+                onChange={this.onChange2}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Address</label>
+              <input
+                type="text"
+                className="form-control"
+                name="address"
+                placeholder="Enter Address"
+              value={this.state.newEmployee.address}
+                onChange={this.onChange2}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">Password</label>
+              <input
+                type="text"
+                className="form-control"
+                name="password"
+                placeholder="Enter Password"
+              value={this.state.newEmployee.password}
+                onChange={this.onChange2}
+              />
+            </div>
+            <button
+            type="submit"
+            className="btn btn-lg btn-primary btn-block"
             >
-            Update Salary
-    </button>
-    </form>
-    </div>
-
-    </div>
+            Enter Employee
+            </button>
+          </form>
         </div>
+      </div>
+    </div> */}
+
+    {/* <div className="col">
+      <div className="container mr-3">
+        <div className="jumbotron mt-5" style ={{backgroundColor:"#e0e0e0"}}>
+          <form noValidate onSubmit={this.onSubmit5} >
+            <div className="col-sm-6">
+              <h2 className="text-primary">Update Doctor Salary</h2>
+            </div>
+            <br/>
+            <div className="form-group">
+              <label htmlFor="name">Doctor ID</label>
+              <input
+                type="text"
+                className="form-control"
+                name="update_doctor_id"
+                placeholder="Enter Doctor ID"
+              value={this.state.update_doctor_id}
+                onChange={this.onChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="name">New Salary</label>
+              <input
+                type="text"
+                className="form-control"
+                name="new_salary"
+                placeholder="Enter New Salary of Doctor"
+              value={this.state.new_salary}
+                onChange={this.onChange}
+              />
+            </div>
+            <button
+                type="submit"
+                className="btn btn-lg btn-primary btn-block"
+              >Update Salary
+            </button>
+          </form>
+        </div>
+      </div>
+    </div> */}
+
         </div>
 
-    <br/>
-    <br/>
-    <Footer />
+<br/><br/>
+<Footer />
                 
-  </div> 
-        );
+</div> 
+      );
     }
 }
  
